@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+.venv/
+*.log
+
+# PySpark / Spark temporary files
+spark-warehouse/
+metastore_db/
+
+# Airflow
+airflow/airflow.db
+airflow/logs/
+airflow/plugins/__pycache__/
+
+# MySQL / Database files
+*.sql
+*.db
+mysql_data/
+
+# Docker
+*.tar
+*.env
+docker-compose.override.yml
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.iml
+
+# Mac OS
+.DS_Store
