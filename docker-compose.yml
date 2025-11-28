@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: Admin#12345
+      MYSQL_DATABASE: etl_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  airflow:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    depends_on:
+      - mysql
+    volumes:
+      - ./airflow/dags:/app/airflow/dags
+      - ./src:/app/src
+      - ./data:/app/data
+
+volumes:
+  mysql_data:
